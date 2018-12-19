@@ -1,0 +1,3 @@
+/* Set configuration options and settings for Comp195 */
+#define Comp195_VERSION_MAJOR @Comp195_VERSION_MAJOR@
+#define Comp195_VERSION_MINOR @Comp195_VERSION_MINOR@
