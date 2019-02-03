@@ -1,0 +1,165 @@
+\documentclass[]{report}
+
+
+% Title Page
+\title{Keeping Functions Inline}
+
+% Authors
+\author{Mark Fraser\\\texttt{m\_fraser3@u.pacific.edu}\\ \\Jillian David\\ \texttt{j\_david1@u.pacific.edu}}
+
+
+\begin{document}
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+\chapter{System Overview}
+
+\section{TODO: Basic Architecture}
+
+\section{Motivation}
+
+Software engineers' and programmers' services alike are in constant demand in today's technologically centered society.  Because of there is insufficient supply to meet demand, software development personnel command higher salaries.  Thus, from a company's perspective, SEs and programmers should be supported as much as possible to maximize their efficiency.  From the SE's and programmer's perspective, software development should be as seamless as possible to facilitate implementing their code logic.  Many programmers develop in Integrated Development Environments (IDEs) to leverage shortcuts and plugins to streamline their workflow.  Eclipse is one of the most popular open-source IDEs with many plugins, but several key features are missing that have been implemented in other IDEs and are desired by developers.  Our goal is to implement one of these features:  inline function editing.
+
+\section{Purpose}
+
+The proposed plugin will allow programmers to retain the context of the function they are currently developing while simultaneously viewing a called function's contents.  This will be done by displaying the called function's contents inline or pseudo inline with the calling function's contents.  Resultingly, fewer button presses, fewer mouse clicks, and less reorientation will be required for developers to work on two coupled functions.
+
+\chapter{Current Implementations}
+
+\section{Eclipse}
+
+Currently, Eclipse does not support inline function editing.  In order to view and edit a called function's contents (assumed to be in another file for this use case), the following steps are executed using keyboard shortcuts:
+
+	\begin{enumerate}
+		\item 
+		Position cursor over called function
+		
+		\item
+		Press $<$F3$>$
+		
+		\item 
+		Current development pane shifts to called function's file
+		
+		\item
+		Cursor is placed at function declaration
+		
+		\item 
+		Developer makes changes to called function
+		
+		\item 
+		$<$Ctrl+S$>$ to save contents
+		
+		\item 
+		$<$Ctrl+W$>$ to close called function's editor pane
+		
+		\item 
+		User is returned to original function pane
+	\end{enumerate}
+
+Using mouse clicks, the following steps are required to perform the same action:
+
+	\begin{enumerate}
+		\item
+		Position cursor over called function
+		
+		\item 
+		Open \textit{Navigate} menu
+		
+		\item
+		Select \textit{Open Declaration}
+		
+		\item
+		Cursor is placed at function declaration
+		
+		\item 
+		Developer makes changes to called function
+		
+		\item 
+		Open \textit{File} menu
+		
+		\item
+		Select \textit{Save} option
+		
+		\item 
+		Click the "x" on the called function's editor pane
+		
+		\item 
+		User is returned to original function pane
+	\end{enumerate}
+
+This requires 8 and 9 steps, respectively.  Also, both use cases require the user to reorient themselves to a new editor pane.  If the developer needs to go back and forth between the files, this adds 3 steps for each iteration between:
+
+	\begin{enumerate}
+		\item
+		Switching to other function editor pane
+		
+		\item
+		Making changes/reviewing code
+		
+		\item 
+		Switching back to original function editor pane
+	\end{enumerate}
+
+This requires much overhead to view and/or edit two functions simultaneously.  Some might argue that one can simply place the editor panes side-by-side, but this use case requires one to clutter the screen with dense text, which is not desirable for a UI.  This will still diminish efficiency, as more text to process requires more of the user's energy to parse through.  As will be made clear in the following sections of other IDE's current implementations, inline function editing is the best use case of the three explored in this section.
+
+\section{TODO: Visual Studio}
+
+\section{TODO: IntelliJ}
+
+\chapter{Project Stakeholders}
+
+\section{Product Owner}
+
+The owner of the plugin.  This stakeholder is responsible for delivering a product that meets the standards of Eclipse plugins and can be added to the plugin store.  This stakeholder is also responsible for maintaining the integrity of the code base.
+
+\section{Users/Clients}
+
+There is only one user/client of this plugin, and that is users of Eclipse.  There are no levels of privileges, as Eclipse is an open-source IDE, and there are no different levels of functionality to imply different clients (i.e. $-$ paid versus unpaid). Users of this plugin will use it with the intention of increasing their development efficiency through better code navigation than what Eclipse currently offers.
+
+\chapter{Non-Functional Requirements}
+
+\section{Constant Uptime}
+
+Users should be able to access this functionality at any time that Eclipse is open.  The plugin must inherently be stable to achieve this requirement.
+
+\section{Keyboard Shortcuts}
+
+Developers are most efficient when developing on the keyboard, as keeping the hands in one place and using the same interfacing tool maintains a consistent context.  This is opposed to switching between using the keyboard and mouse, or keyboard and screen, or all of the above.  Thus, a plugin dedicated to efficiency should therefore provide some hot key functionality on the keyboard to best fulfill its goal.
+
+\section{Menu Options}
+
+For developers who do not wish to bind this plugin's functionality to hot keys, they must still be able to interface with the plugin through the Eclipse menus.  Therefore, menu options must be implemented to guarantee interfacing functionality.
+
+\section{Efficient Content Display}
+
+The plugin's purpose is to display text inline or pseudo inline with the current file to increase developer efficiency.  Thus, the contents of the function to be displayed must be shown in an efficient manner such that users can easily switch between the called function's contents and the calling function's contents.
+
+\section{Failure Management}
+
+Not all functions might not exist or be findable.  Proper error-handling and user informing should be established to effectively communicate this to the user.
+
+\section{Portability}
+
+Referring to portability between Eclipse versions.  The plugin should be architected to maintain functionality and require minimal changes when ported to future versions of Eclipse.
+
+\chapter{Functional Requirements}
+
+\section{TODO: Use Case Diagram}
+
+\section{TODO: Casual Use Case Descriptions}
+
+\section{TODO: Fully Dressed Use Case Descriptions}
+
+\chapter{Sequence Diagrams}
+
+\chapter{UI Design}
+
+\chapter{Glossary of Terms}
+
+\textbf{Integrated Development Environment (IDE)}\\ \\
+An integrated development environment (IDE) is a software application that provides comprehensive facilities to computer programmers for software development. An IDE normally consists of a source code editor, build automation tools, and a debugger. Most of the modern IDEs have intelligent code completion.\footnote{https://en.wikipedia.org/wiki/Integrated\_development\_environment}
+
+\end{document}
